@@ -28,4 +28,3 @@ Route::get('/documentos', [DocumentosController::class, 'index'])->name('documen
 Route::get('/recepcion', [RecepcionController::class, 'index'])->name('recepcion');
 Route::get('/evaluacion', [EvaluacionController::class, 'index'])->name('evaluacion');
 
-Route::get('/recepcion', [RecepcionController::class, 'index'])->name('recepcion');

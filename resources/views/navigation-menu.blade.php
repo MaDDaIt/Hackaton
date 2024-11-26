@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('documentos') }}" :active="request()->routeIs('documentos')">
                         {{ __('Denuncias') }}
@@ -26,6 +26,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('recepcion') }}" :active="request()->routeIs('recepcion')">
                         {{ __('Recepción') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('evaluacion') }}" :active="request()->routeIs('evaluacion')">
+                        {{ __('Evaluación') }}
                     </x-nav-link>
                 </div>
 

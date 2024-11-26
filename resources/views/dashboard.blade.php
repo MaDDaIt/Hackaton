@@ -1,20 +1,7 @@
 <x-app-layout>
     <div class="flex h-screen bg-gray-50">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md">
-          <div class="p-6">
-            <h1 class="text-2xl font-bold text-blue-600">Gestión de Denuncias</h1>
-          </div>
-          <nav class="space-y-2">
-            <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
-            <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-gray-100">Denuncias</a>
-            <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-gray-100">Estadísticas</a>
-            <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-gray-100">Reportes</a>
-          </nav>
-          <div class="p-6 mt-auto">
-            <button class="w-full px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700">Cerrar Sesión</button>
-          </div>
-        </aside>
+        
 
         <!-- Main Content -->
         <div class="flex flex-col flex-1">
