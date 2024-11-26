@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('ambito_geografico');
             $table->string('provincia');
             $table->string('distrito');
+            $table->tinyInteger('estado')->default(1);
+            $table->enum('denun_estado', ['En proceso', 'No admitido', 'Admitido', 'Derivado a OCI'])->default('En proceso');
             $table->timestamps();
         });
     }

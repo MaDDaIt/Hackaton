@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VerificaciONController;
+use App\Http\Controllers\DocumentosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +19,6 @@ Route::middleware([
 });
 
 Route::resource('verificacion', VerificaciONController::class)->names('verificacion');
+
+Route::get('/documentos', [DocumentosController::class, 'index'])->name('documentos');
+
