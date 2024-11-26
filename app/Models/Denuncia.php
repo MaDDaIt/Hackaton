@@ -11,5 +11,9 @@ class Denuncia extends Model
         'entidad_sujeta_control', 'ambito_geografico',
         'provincia_id', 'distrito_id'
     ];
+
+    public function recepcion() {
+        return $this->hasMany(Recepcion::class);
+    }
     
 }
