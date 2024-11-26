@@ -12,8 +12,5 @@ class Denuncia extends Model
         'provincia_id', 'distrito_id'
     ];
 
-    public function recepcion() {
-        return $this->hasMany(Recepcion::class);
-    }
     
 }

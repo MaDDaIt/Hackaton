@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Recepcion;
 
 use Livewire\Component;
@@ -9,7 +8,7 @@ use App\Models\Recepcion;
 class CrearRecepcion extends Component
 {
     public $showModal = false;
-    public $denuncia_id;  // Agregar esta propiedad
+    public $denuncia_id; 
     public $denuncias = [];
     public $fecha_registro_recepcion;
     public $auditor_recepcion;
@@ -32,7 +31,7 @@ class CrearRecepcion extends Component
     public function abrirModal()
     {
         $this->resetValidation();
-        $this->reset();
+        $this->reset(['denuncia_id', 'fecha_registro_recepcion', 'auditor_recepcion', 'fecha_evaluacion_admision', 'resultado_recepcion']);
         $this->showModal = true;
     }
 

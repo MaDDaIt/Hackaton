@@ -12,9 +12,10 @@ class Recepcion extends Model
         'auditor_recepcion', 'fecha_evaluacion_admision',
         'resultado_recepcion'
     ];
-    public function denuncias() {
-        return $this->hasMany(Denuncia::class);
+
+    public function denuncias()
+    {
+        return $this->belongsTo(Denuncia::class, 'denuncia_id');
     }
-    
     
 }
