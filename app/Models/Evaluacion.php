@@ -3,12 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Evaluacion extends Model
 {
+    use HasFactory;
+
+    protected $table = 'evaluaciones';
+
     protected $fillable = [
-        'denuncia_id', 'auditor_evaluacion',
-        'fecha_culminacion_evaluacion', 'resultado_evaluacion'
+        'auditor_evaluacion',
+        'fecha_culminacion_evaluacion',
+        'resultado_evaluacion',
+        'denuncia_id',
     ];
     
 }
