@@ -1,77 +1,146 @@
 <div>
-    
-        <div class="my-6 mx-4 p-8 bg-white rounded-lg shadow-md">
-            <h1 class="text-center text-blue-500 text-3xl font-semibold mb-6">Registrar Nueva Denuncia</h1>
+    <div class="my-6 p-6 bg-white rounded-lg shadow-lg max-w-3xl mx-auto">
+        <h1 class="text-center text-blue-600 text-2xl mb-6">Detalle</h1>
 
-            <!-- Mensajes de error -->
-            <div class="alert bg-red-500 text-white p-3 rounded-lg mb-4 hidden" id="error-message"></div>
-
-            <form action="/denuncia/store" method="POST" class=" m-10" enctype="multipart/form-data" id="denuncia-form">
-                @csrf
-                <div class="mb-4">
-                    <label for="tipo_tramite" class="block font-semibold">Tipo de Trámite</label>
-                    <select id="tipo_tramite" name="tipo_tramite" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
-                        <option value="Nuevo Trámite">Nuevo Trámite</option>
-                    </select>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-5">
+                <div class="flex items-center mb-4">
+                    <h3 class="font-semibold text-md text-gray-700 w-20">Entidad:</h3>
+                    <p id="nombre_entidad" class="text-sm text-gray-500">Municipalidad de Lima</p>
                 </div>
 
-                <div class="mb-4">
-                    <label for="nombre_entidad" class="block font-semibold">Nombre de la Entidad</label>
-                    <input type="text" id="nombre_entidad" name="nombre_entidad" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
+                <div>
+                    <h3 class="font-semibold text-md text-gray-700">Descripción:</h3>
+                    <p id="descripcion_hechos" class="text-sm text-gray-500 break-words">Descripción detallada de los hechos ocurridos en el distrito de Lima...</p>
                 </div>
 
-                <div class="mb-4">
-                    <label for="descripcion_hechos" class="block font-semibold">Descripción de los Hechos</label>
-                    <textarea id="descripcion_hechos" name="descripcion_hechos" rows="4" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required></textarea>
-                </div>
+                <div class="flex space-x-6 mt-6">
+                    <div class="w-1/2">
+                        <h3 class="font-semibold text-md text-gray-700">Correo Electrónico:</h3>
+                        <p id="correo" class="text-sm text-gray-500">contacto@lima.gob.pe</p>
+                    </div>
 
-                <div class="mb-4">
-                    <label for="fecha_hechos" class="block font-semibold">Fecha de los Hechos</label>
-                    <input type="date" id="fecha_hechos" name="fecha_hechos" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
+                    <div class="w-1/2">
+                        <h3 class="font-semibold text-md text-gray-700">Celular:</h3>
+                        <p id="telefono" class="text-sm text-gray-500">999876543</p>
+                    </div>
                 </div>
+            </div>
 
-                <div class="mb-4">
-                    <label for="documento" class="block font-semibold">Cargar Formato Único de Registro (FUR) en PDF (OCR)</label>
-                    <input type="file" id="documento" name="documento" accept="application/pdf" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="anexos" class="block font-semibold">Cargar Anexos (máximo 5 archivos)</label>
-                    <input type="file" id="anexos" name="anexos[]" multiple class="w-full p-2 mt-2 border border-gray-300 rounded-md">
-                </div>
-
-                <div class="mb-4">
-                    <label for="correo" class="block font-semibold">Correo Electrónico</label>
-                    <input type="email" id="correo" name="correo" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="telefono" class="block font-semibold">Teléfono Celular</label>
-                    <input type="text" id="telefono" name="telefono" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="direccion" class="block font-semibold">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">Registrar Denuncia</button>
-            </form>
+            <div class="space-y-5">
+                <h3 class="font-semibold text-md text-gray-700 mb-4">Archivos Enviados:</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow-sm">
+                        <p class="text-sm text-gray-600">Archivo_1.pdf</p>
+                        <button class="text-xs text-blue-500 hover:underline">Ver</button>
+                    </div>
+                </div> 
+            </div>
         </div>
 
-        <script>
-            // Validación de formulario
-            const form = document.getElementById('denuncia-form');
-            const errorMessage = document.getElementById('error-message');
+        <div class="mt-8 flex items-center justify-center">
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-green-500 text-white">
+                        <span class="text-xs font-bold">1</span>
+                    </div>
+                    <span class="text-sm text-gray-700">En Proceso</span>
+                </div>
 
-            form.addEventListener('submit', function (event) {
-                // Aquí podrías agregar validación adicional de campos si es necesario
-                if (!document.getElementById('nombre_entidad').value || !document.getElementById('descripcion_hechos').value || !document.getElementById('documento').value) {
-                    event.preventDefault(); // Evitar el envío del formulario
-                    errorMessage.style.display = 'block';
-                    errorMessage.textContent = 'Por favor, complete todos los campos obligatorios.';
-                }
-            });
-        </script>
-    
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">2</span>
+                    </div>
+                    <span class="text-sm text-gray-500">No Admitido</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">3</span>
+                    </div>
+                    <span class="text-sm text-gray-500">Admitido</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">4</span>
+                    </div>
+                    <span class="text-sm text-gray-500">Derivado a OCI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-6 p-6 bg-white rounded-lg shadow-lg max-w-3xl mx-auto">
+        <h1 class="text-center text-blue-600 text-2xl mb-6">Detalle</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Información en el lado izquierdo -->
+            <div class="space-y-5">
+                <div class="flex items-center mb-4">
+                    <h3 class="font-semibold text-md text-gray-700 w-20">Entidad:</h3>
+                    <p id="nombre_entidad" class="text-sm text-gray-500">Municipalidad de Arequipa</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-md text-gray-700">Descripción:</h3>
+                    <p id="descripcion_hechos" class="text-sm text-gray-500 break-words">Descripción breve sobre los hechos ocurridos en Arequipa...</p>
+                </div>
+
+                <div class="flex space-x-6 mt-6">
+                    <div class="w-1/2">
+                        <h3 class="font-semibold text-md text-gray-700">Correo Electrónico:</h3>
+                        <p id="correo" class="text-sm text-gray-500">informes@arequipa.gob.pe</p>
+                    </div>
+
+                    <div class="w-1/2">
+                        <h3 class="font-semibold text-md text-gray-700">Celular:</h3>
+                        <p id="telefono" class="text-sm text-gray-500">988123456</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                <h3 class="font-semibold text-md text-gray-700 mb-4">Archivos Enviados:</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow-sm">
+                        <p class="text-sm text-gray-600">Archivo_2.pdf</p>
+                        <button class="text-xs text-blue-500 hover:underline">Ver</button>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="mt-8 flex items-center justify-center">
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">1</span>
+                    </div>
+                    <span class="text-sm text-gray-700">En Proceso</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-red-600 text-white">
+                        <span class="text-xs font-bold">2</span>
+                    </div>
+                    <span class="text-sm text-gray-500">No Admitido</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">3</span>
+                    </div>
+                    <span class="text-sm text-gray-500">Admitido</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center bg-gray-300 text-white">
+                        <span class="text-xs font-bold">4</span>
+                    </div>
+                    <span class="text-sm text-gray-500">Derivado a OCI</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
